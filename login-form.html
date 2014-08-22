@@ -1,0 +1,50 @@
+<br>
+<div class="well">
+    <form class="form-horizontal" name="loginForm" method="post" ng-submit="login(credentials, loginForm.$valid)" novalidate>
+        <fieldset>
+            <div id="legend">
+                <legend class="">Login</legend>
+            </div>    
+            <div class="control-group" ng-class="{ 'has-error': loginForm.username.$invalid && !loginForm.username.$pristine}">
+                 <!-- Username -->
+                <label class="control-label"  for="username">User name:</label>
+                <div class="controls">
+                    <input type="text" id="username" name="username" ng-click="resetForm()"
+                        placeholder="" class="input-xlarge" ng-model='credentials.username' ng-model-options="{updateOn: 'blur'}" required>
+                </div>
+                <p ng-show='loginForm.username.$invalid && !loginForm.username.$pristine' class="text-danger">Must enter username.</p>
+            </div>
+
+            <div class="control-group" ng-class="{ 'has-error': loginForm.password.$invalid && !loginForm.password.$pristine}">
+                <!-- Password-->
+                <label class="control-label" for="password">Password:</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" ng-click="resetForm()"
+                        placeholder="" class="input-xlarge" ng-model='credentials.password' required>
+                </div>
+                <p ng-show='loginForm.password.$invalid && !loginForm.password.$pristine' class="text-danger">Must enter password.</p>
+            </div>
+            <div class="control-group" ng-show='loginForm.$valid && showError'>
+                <span class="text-danger">Incorrect username or password.</span>
+            </div>
+            <div class="control-group">
+                <label class="control-label">
+                <div class="controls">
+                <span class="checked">
+                    <input id="rememberme" name="rememberme" type="checkbox" ng-model="rememberme" value="true">
+                </span>
+                    Remember me
+                </div>
+                </label>
+            </div>
+
+            <br>
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success" >Login</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>     
+</div>
